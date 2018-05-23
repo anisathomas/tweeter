@@ -5,6 +5,7 @@
  */
 html {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -13,6 +14,13 @@ html {
 /*
  * Global layout stuff
  */
+ main {
+  width: 450px;
+  background: #FFFFFF;
+  margin: auto;
+  padding: 10px;
+  padding-top: 140px;
+ }
 
 body {
   margin: 0;
@@ -23,3 +31,5 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+

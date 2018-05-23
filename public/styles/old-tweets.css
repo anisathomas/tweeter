@@ -1,0 +1,72 @@
+
+/*header in each article*/
+header {
+  background-color: #eee;
+  border-radius: inherit;
+  padding: 5px;
+}
+
+footer {
+  border-top: 1px solid #d3d3d3;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/*for the article*/
+article {
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  width: auto;
+}
+
+img {
+  border-radius: inherit;
+  margin-right: 4px;
+}
+
+.time {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.tweetText {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/*for the section that contains all the tweets*/
+.sectionOfTweets{
+  padding: 10px;
+}
+
+.name {
+  position: absolute;
+
+}
+
+.handle {
+  float: right;
+  line-height: 2;
+
+}
+
+.icon {
+  opacity: 0;
+  color: green;
+  float: right;
+}
+
+article:hover .icon {
+  opacity: 1;
+
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
