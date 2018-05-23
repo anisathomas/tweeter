@@ -3,33 +3,47 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+function loadTweets (){
+    $.ajax({
+          url: 'http://localhost:8080/tweets',
+          method: 'GET',
+          success: function (tweets) {
+            renderTweets(tweets);
+          }
+     });
+  }
+
+
 $(document).ready(function () {
 
    $("form").on( "submit", function( event ) {
     event.preventDefault();
     var serializedData = $(this).serialize();
+    if(serializedData.length > 140){
+      alert("Error: Your tweet content is too long");
+    } else if (serializedData === "text=" ){
+      alert ("Error: Your tweet content is not present")
+    } else {
+      console.log(serializedData);
       $.ajax({
             url: 'http://localhost:8080/tweets',
             method: 'POST',
             data: serializedData,
             success: function () {
               loadTweets();
-
             }
       });
+    }
   });
 
-  function loadTweets (){
-    $.ajax({
-          url: 'http://localhost:8080/tweets',
-          method: 'GET',
-          success: function (tweets) {
-            renderTweets(tweets);
+ loadTweets();
 
-          }
-        });
-  }
 });
+
+
+
+// The form should not be cleared
+// The form should not submit
 
 
 // const data = [
@@ -61,21 +75,6 @@ $(document).ready(function () {
 //       "text": "Je pense , donc je suis"
 //     },
 //     "created_at": 1461113959088
-//   },
-//   {
-//     "user": {
-//       "name": "Johann von Goethe",
-//       "avatars": {
-//         "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-//         "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-//         "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-//       },
-//       "handle": "@johann49"
-//     },
-//     "content": {
-//       "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-//     },
-//     "created_at": 1461113796368
 //   }
 // ];
 
