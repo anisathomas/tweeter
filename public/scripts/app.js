@@ -4,6 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
+
+
+
 function loadTweets (){
   $.ajax({
       url: 'http://localhost:8080/tweets',
@@ -15,6 +19,11 @@ function loadTweets (){
 }
 
 $(document).ready(function () {
+  $(".new-tweet").hide();
+  $( ".compose-button" ).click(function() {
+          $( ".new-tweet" ).toggle();
+          $("textarea").focus().select();
+        });
    $("form").on( "submit", function( event ) {
     event.preventDefault();
     var serializedData = $(this).serialize();
