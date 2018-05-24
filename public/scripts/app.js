@@ -3,6 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 function loadTweets (){
   $.ajax({
       url: 'http://localhost:8080/tweets',
@@ -53,6 +54,13 @@ function renderTweets(tweets) {
   // takes return value and appends it to the section of tweets container
 }
 
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+//used like this: const safeHTML = `<p>${escape(textFromUser)}</p>`;
+//added escape to actual tweet, user name and user handle
 
 function createTweetElement(tweet) {
   var $tweet = $("<article>");
@@ -63,11 +71,11 @@ function createTweetElement(tweet) {
   $(`<img src=${tweet.user.avatars.regular}>`).appendTo($header);
   var $spanName = $("<span class='name'>");
   ($spanName).appendTo($header);
-  $(`<b>${tweet.user.name}</b>`).appendTo($spanName);
-  $(`<span class='handle'>${tweet.user.handle}</span>`).appendTo($header);
+  $(`<b>${escape(tweet.user.name)}</b>`).appendTo($spanName);
+  $(`<span class='handle'>${escape(tweet.user.handle)}</span>`).appendTo($header);
 
   //second append the tweet
-  $(`<p class='tweetText'>${tweet.content.text}</p>`).appendTo($tweet);
+  $(`<p class='tweetText'>${escape(tweet.content.text)}</p>`).appendTo($tweet);
 
   var $footer = $("<footer>");
   ($footer).appendTo($tweet);
