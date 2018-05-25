@@ -3,11 +3,9 @@
 Tweeter is a simple, single-page Twitter clone.
 
 ## Final Product
-!["screenshot of urls page"](https://github.com/anisathomas/TinyApp/blob/master/docs/urls-page.png?raw=true)
+!["screenshot of homepage of tweets"](https://github.com/anisathomas/tweeter/blob/master/docs/tweets.png)
 
-!["screenshot of urls page when user is logged in"](https://github.com/anisathomas/TinyApp/blob/master/docs/urls2-page.png?raw=true)
-
-!["screenshot of register page"](https://github.com/anisathomas/TinyApp/blob/master/docs/register-page.png?raw=true)
+!["screenshot of Compose Tweet Box"](https://github.com/anisathomas/tweeter/blob/master/docs/Compose-tweet.png)
 
 ## Getting Started
 
