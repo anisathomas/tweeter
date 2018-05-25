@@ -24,7 +24,7 @@ textarea {
 }
 
 .counter {
-  position: fixed;
+  position: absolute;
   right: 521px;
 
 }
