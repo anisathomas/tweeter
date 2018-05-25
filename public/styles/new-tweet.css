@@ -18,16 +18,19 @@ h2 {
 }
 
 textarea {
-  width: 365px;
-  margin: auto;
-  /*padding: 10px;*/
-
+  width: 400px;
+  margin-left: 6px;
+  margin-bottom: 3px;
 }
 
 .counter {
-  position: absolute;
-  right: 560px;
+  position: fixed;
+  right: 521px;
 
+}
+
+input {
+  margin-left: 5px;
 }
 
 /*to comment code*/

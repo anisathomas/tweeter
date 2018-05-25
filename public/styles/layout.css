@@ -15,7 +15,8 @@ html {
  * Global layout stuff
  */
  main {
-  width: 450px;
+  /*width: 450px;*/
+  width: 500px;
   background: #FFFFFF;
   margin: auto;
   padding: 10px;
