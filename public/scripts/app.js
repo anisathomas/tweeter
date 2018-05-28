@@ -1,13 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-
-
-
-
 function loadTweets (){
   $.ajax({
       url: 'http://localhost:8080/tweets',
@@ -21,25 +11,27 @@ function loadTweets (){
 $(document).ready(function () {
   $(".new-tweet").hide();
   $( ".compose-button" ).click(function() {
-          $( ".new-tweet" ).toggle();
-          $("textarea").focus().select();
-        });
-   $("form").on( "submit", function( event ) {
+    $( ".new-tweet" ).toggle();
+    $("textarea").focus().select();
+  });
+ $("form").on( "submit", function( event ) {
     event.preventDefault();
     var serializedData = $(this).serialize();
-    if(serializedData.length > 140){
+    var textarea = $('.new-tweet textarea')
+    console.log(textarea.val());
+    if( textarea.val() > 140){
       alert("Error: Your tweet content is too long");
-    } else if (serializedData === "text=" ){
+    } else if (textarea.val() === "" ){
       alert ("Error: Your tweet content is not present")
     } else {
-      console.log(serializedData);
+      //console.log(serializedData);
       $.ajax({
-            url: 'http://localhost:8080/tweets',
-            method: 'POST',
-            data: serializedData,
-            success: function () {
-              loadTweets();
-            }
+        url: 'http://localhost:8080/tweets',
+        method: 'POST',
+        data: serializedData,
+        success: function () {
+          loadTweets();
+        }
       });
     }
   });
@@ -88,6 +80,7 @@ function createTweetElement(tweet) {
 
   var $footer = $("<footer>");
   ($footer).appendTo($tweet);
+
 
   //third append stuff the footer
   $(`<p class='time'><small>${tweet.created_at} days ago</small></p>`).appendTo($footer);
