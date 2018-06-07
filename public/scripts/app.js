@@ -1,3 +1,5 @@
+// var moment = require('moment');
+
 function loadTweets (){
   $.ajax({
       url: 'http://localhost:8080/tweets',
@@ -19,12 +21,11 @@ $(document).ready(function () {
     var serializedData = $(this).serialize();
     var textarea = $('.new-tweet textarea')
     console.log(textarea.val());
-    if( textarea.val() > 140){
+    if(textarea.val() > 140){
       alert("Error: Your tweet content is too long");
     } else if (textarea.val() === "" ){
       alert ("Error: Your tweet content is not present")
     } else {
-      //console.log(serializedData);
       $.ajax({
         url: 'http://localhost:8080/tweets',
         method: 'POST',
@@ -81,9 +82,9 @@ function createTweetElement(tweet) {
   var $footer = $("<footer>");
   ($footer).appendTo($tweet);
 
-
+  var timeAgo = moment(tweet.created_at).fromNow();
   //third append stuff the footer
-  $(`<p class='time'><small>${tweet.created_at} days ago</small></p>`).appendTo($footer);
+  $(`<p class='time'><small>${timeAgo}</small></p>`).appendTo($footer);
 
   var $div = $("<div class='clearfix'>");
   ($div).appendTo($footer);
