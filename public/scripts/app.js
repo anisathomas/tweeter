@@ -20,8 +20,8 @@ $(document).ready(function () {
     event.preventDefault();
     var serializedData = $(this).serialize();
     var textarea = $('.new-tweet textarea')
-    console.log(textarea.val());
-    if(textarea.val() > 140){
+    console.log(textarea.val().length);
+    if(textarea.val().length > 140){
       alert("Error: Your tweet content is too long");
     } else if (textarea.val() === "" ){
       alert ("Error: Your tweet content is not present")
